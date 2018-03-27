@@ -1,0 +1,23 @@
+group 'com.pragmaticcoders'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'groovy'
+
+sourceCompatibility = 1.10
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+    testCompile 'pl.pragmatists:JUnitParams:1.1.1'
+
+    testCompile 'org.junit.jupiter:junit-jupiter-api:5.1.0'
+    testCompile 'org.junit.jupiter:junit-jupiter-params:5.1.0'
+
+    testCompile 'org.spockframework:spock-core:1.1-groovy-2.4'
+
+    testCompile 'org.assertj:assertj-core:3.9.1'
+}
