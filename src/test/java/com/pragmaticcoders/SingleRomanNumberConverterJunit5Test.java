@@ -1,10 +1,7 @@
 package com.pragmaticcoders;
 
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.MethodSource;
-
-import java.util.stream.Stream;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -13,20 +10,16 @@ class SingleRomanNumberConverterJunit5Test {
     private SingleRomanNumberConverter converter = new SingleRomanNumberConverter();
 
     @ParameterizedTest
-    @MethodSource("dataProvider")
+    @CsvSource({
+            "I, 1",
+            "V, 5",
+            "X, 10",
+            "L, 50",
+            "C, 100",
+            "D, 500",
+            "M, 1000"
+    })
     void convertsAllSingleNumbers(String romanNumber, int expectedResult){
         assertThat(converter.convert(romanNumber)).isEqualTo(expectedResult);
-    }
-
-    private static Stream<Arguments> dataProvider() {
-        return Stream.of(
-                Arguments.of("I", 1),
-                Arguments.of("V", 5),
-                Arguments.of("X", 10),
-                Arguments.of("L", 50),
-                Arguments.of("C", 100),
-                Arguments.of("D", 500),
-                Arguments.of("M", 1000)
-        );
     }
 }
